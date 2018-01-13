@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>LostDog</title>
+    <!-- FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Shadows+Into+Light' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Josefin+Sans:300' rel='stylesheet' type='text/css'>
+    <!-- BOOTSTRAP Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!--  STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+    <!-- Firebase Reference -->
+    <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
+    <!-- Latest compiled and minified jQuery -->
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+
+<body class="createGame">
+    <!-- LOGO -->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <a href="index.html">
+                <div id="logo">Find Fido</div>
+            </a>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="active"><a href="index.html" class="navbar-link-author" style="color:white; background-color:black;">Home<span class="sr-only">(current)</span></a></li>
+                <li><a href="Lost.html" class="navbar-link-author" style="color:white;">Lost</a></li>
+                <li><a href="Found.html" class="navbar-link-author" style="color:white;">Found</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <!-- WEATHER DATA FLASH -->
+        <div class="row">
+            <div class="col-lg-12 text-center" id="weather-pulse-div">
+                <div id="temp-warning" class="hidden pulsate-text"></div>
+                <div id="wind-warning" class="hidden pulsate-text"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="panel panel-default panel-transparent">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Lost Item</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!-- Sign-up Form (note the various input "types")-->
+                        <form role="form">
+                            <div class="dropdown form-group">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100%;">
+                                    Breed &amp; 
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                                    <li class="dropdown-header">Basketball</li>
+                                    <li><a href="#" data-value="3-on-3 Basketball">3-on-3 Basketball</a></li>
+                                    <li><a href="#" data-value="5-on-5 Basketball">5-on-5 Basketball</a></li>
+                                    <li class="dropdown-header">Soccer</li>
+                                    <li><a href="#" data-value="7-on-7 Soccer">7-on-7 Soccer</a></li>
+                                    <li><a href="#" data-value="11-on-11 Soccer">11-on-11 Soccer</a></li>
+                                    <li class="dropdown-header">Disc Golf</li>
+                                    <li><a href="#" data-value="Disc Golf (North Austin)">Disc Golf (North Austin)</a></li>
+                                    <li><a href="#" data-value="Disc Golf (South Austin)">Disc Golf (South Austin)</a></li>
+                                </ul>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="user-name-input" placeholder="color">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="game-name-input" placeholder="placeholder">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="location-input" placeholder="Lost location (Address or Place)">
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="date-input" placeholder="Lost Date MM/DD/YYYY (06/15/2016)">
+                            </div>
+                            </script>
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="time-input" placeholder="Placeholder">
+                            </div>
+                            <button type="submit" class="btn btn-success" id="addPickupGame">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- MAP HOLDER -->
+            <div class="col-lg-5">
+                <div id="map-holder">
+                    <!-- INITIAL MAP -->
+                    <iframe class="visible create-game-map" id="init-map" width="458" height="440" frameborder="0" src="https://www.google.com/maps/embed/v1/view?zoom=10&amp;center=30.2672%2C-97.7431&amp;key=AIzaSyDchdsjpvalXui_QTAFtm9Hb1Ka67X5s1k"></iframe>
+                    <!-- BASKETBALL MAP -->
+                    <iframe class="hidden create-game-map" id="basketball-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/search?q=basketball+court&amp;center=30.2672%2C-97.7431&amp;zoom=10&amp;key=AIzaSyDchdsjpvalXui_QTAFtm9Hb1Ka67X5s1k'></iframe>
+                    <!-- SOCCER MAP -->
+                    <iframe class="hidden create-game-map" id="soccer-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/search?q=soccer&amp;center=30.2672%2C-97.7431&amp;zoom=10&amp;key=AIzaSyDchdsjpvalXui_QTAFtm9Hb1Ka67X5s1k'></iframe>
+                    <!-- DISC GOLF MAP -->
+                    <iframe class="hidden create-game-map" id="disc-golf-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/search?q=disc+golf&amp;center=30.2672%2C-97.7431&amp;zoom=10&amp;key=AIzaSyDchdsjpvalXui_QTAFtm9Hb1Ka67X5s1k'></iframe>
+                </div>
+            </div>
+            <!-- WEATHER TEXT -->
+            <div class="col-lg-4 col-md-12">
+                <div class="text-center" id="weather-info-div">
+                    <h4>Nearest Dog Shelters</h4>
+                    <hr>
+                    <div class="weather-data"><strong>Placeholder</strong>
+                        <div id="weather"></div>
+                    </div>
+                    <div class="weather-data"><strong>Placeholder</strong>
+                        <div id="temp"></div>
+                    </div>
+                    <div class="weather-data"><strong>Placeholder</strong>
+                        <div id="feels-like"></div>
+                    </div>
+                    <div class="weather-data"><strong>Placeholder</strong>
+                        <div id="heat-index"></div>
+                    </div>
+                    <div class="weather-data">If you're scheduling your game more than a day in advance, visit the URL below for a full weather forecast!
+                        <a href="http://www.wunderground.com/US/TX/Austin.html" target="_blank">
+                            <div id="forecast-url"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- MOMENT JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <!-- Latest compiled and minified BOOTSTRAP JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <!-- AUTHOR CREATED MAIN JS -->
+    <script type="text/javascript" src="assets/js/main.js"></script>
+    <!-- MOMENT JS -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
+    <!-- VEX MODALS -->
+    <script src="assets/js/vex.combined.min.js"></script>
+    <script>
+    vex.defaultOptions.className = 'vex-theme-os';
+    </script>
+    <link rel="stylesheet" href="assets/css/vex.css" />
+    <link rel="stylesheet" href="assets/css/vex-theme-os.css" />
+</body>
+
+</html>
