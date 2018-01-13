@@ -1,7 +1,8 @@
 //alert("connected");
 
 $(document).ready(function () {
-    var dogs = ["PIT_BULL", "LAB", "PUG", "HUSKY","SHEPARD","BULLDOG","COLLIE"];
+    var dogs = ["PIT_BULL", "LAB", "PUG", "HUSKY","SHEPARD","BULLDOG","COLLIE","BOXER","POODLE",
+    "GOLDEN RETRIEVER","MIX"];
 
     function createDog() {
         $("#lostDogs").empty();
