@@ -30,12 +30,19 @@ body {
   -moz-background-size: cover;
   background-size: 100%;
   height: 100%;
+  width: 100%;
   
  
 }
 
 #firstDog{
   margin-top: -5%;
+}
+
+#secondDog{
+  max-width:100%;
+  max-height:auto;
+  margin-bottom: -12%;
 }
 
 .lost, .found{
@@ -71,6 +78,12 @@ a:hover {
   font-family: 'Shadows Into Light', cursive;
   font-size: 2em;
   height: 45px;
+}
+
+#footerChange{
+  margin-top: 5%;
+  bottom: 0;  
+  
 }
 
 
