@@ -1,60 +1,21 @@
-///////////////////////////////////////////////////////////
-// CLICK LISTENERS
-///////////////////////////////////////////////////////////
+// ____________________CLICK LISTENERS____________________ //
 
-///////// 'createGame.html' FORM /////////
+
+//Submit Lost Dog Dropdown
 
 $(".dropdown-menu li a").on("click", function() {
     $(this).parents(".dropdown").find('.btn').html($(this).text() + ' <span class="caret"></span>');
     $(this).parents(".dropdown").find('#dropdownMenu1').val($(this).data('value'));
     console.log($("#dropdownMenu1").val());
-
-    if ($("#dropdownMenu1").val() == "3-on-3 Basketball" || $("#dropdownMenu1").val() == "5-on-5 Basketball") {
-        $(".visible").removeClass("visible").addClass("hidden");
-        $("#basketball-map")
-            .removeClass("hidden")
-            .addClass("visible")
-            .fadeIn(500);
-        $("#wind-warning").addClass("hidden");
-        $("#temp-warning").removeClass("hidden");
-    };
-
-    if ($("#dropdownMenu1").val() == "7-on-7 Soccer" || $("#dropdownMenu1").val() == "11-on-11 Soccer") {
-        $(".visible").removeClass("visible").addClass("hidden");
-        $("#soccer-map")
-            .removeClass("hidden")
-            .addClass("visible")
-            .fadeIn(500);
-        $("#wind-warning").addClass("hidden");
-        $("#wind-warning").addClass("hidden");
-    };
-
-    if ($("#dropdownMenu1").val() == "Disc Golf (North Austin)" || $("#dropdownMenu1").val() == "Disc Golf (South Austin)") {
-        $(".visible").removeClass("visible").addClass("hidden");
-        $("#disc-golf-map")
-            .removeClass("hidden")
-            .addClass("visible")
-            .fadeIn(500);
-        $("#temp-warning").addClass("hidden");
-        $("#wind-warning").removeClass("hidden");
-    };
-
-    // pulsating text effect
-    $(function() {
-        var p = $(".pulsate-text");
-        for (var i = 0; i < 3; i++) {
-            p.animate({ opacity: 0.2 }, 1000, 'linear').animate({ opacity: 1 }, 1000, 'linear');
-        }
-
-    });
 });
 
-////////////////////////////////////
-// FORM VALIDATION FUNCTIONS
-////////////////////////////////////
+
+
+// ____________________FORM VALIDATION FUNCTIONS____________________ //
+
 function checkGameType(pickupGameType) {
     if (pickupGameType === "") {
-        vex.dialog.alert("Please select a game type");
+        vex.dialog.alert("Please select a dog breed");
         return false;
     }
     return true;
@@ -65,7 +26,7 @@ function checkUserName(pickupUserName) {
     re = /[a-z]\w+/gi;
 
     if (pickupUserName !== '' && !pickupUserName.match(re)) {
-        vex.dialog.alert("Please enter a valid user name");
+        vex.dialog.alert("Please enter a valid color");
         return false;
     }
     return true;
@@ -76,7 +37,7 @@ function checkGameName(pickupGameName) {
     re = /[a-z]\w+/gi;
 
     if (pickupGameName !== '' && !pickupGameName.match(re)) {
-        vex.dialog.alert("Please enter a valid game name");
+        vex.dialog.alert("Please enter a valid size");
         return false;
     }
     return true;
@@ -85,7 +46,7 @@ function checkGameName(pickupGameName) {
 function checkLocation(pickupLocation) {
 
     if (pickupLocation === '') {
-        vex.dialog.alert("Please enter a valid location (either the place name or the full address)");
+        vex.dialog.alert("Please enter a valid location (City or ZIP)");
         return false;
     }
     return true;
@@ -113,71 +74,65 @@ function checkTime(pickupTime) {
     return true;
 }
 
-///////// 'findGame.html' CHILDREN ADDED FROM FIREBASE /////////
+
+
+///////// Submits Dogs added from Firebase as Chidren
 
 $(".active-games").on("click", ".game-location", function() {
     var location = $(this).attr("data-location");
     location = encodeURIComponent(location.trim());
     $(".find-game-map").removeClass("visible").addClass("hidden");
-    $("#map-holder").html("<iframe class='visible show-game-map' width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/search?q=" + location + "&amp;center=30.2672%2C-97.7431&amp;zoom=10&amp;key=AIzaSyDchdsjpvalXui_QTAFtm9Hb1Ka67X5s1k'></iframe>");
+    $("#map-holder").html("<iframe class='visible show-game-map' width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/search?q=" + location + ",+United+States&key=AIzaSyA3Qc-NrPzqioe6_w80_FL8xanuXIgCAtA'></iframe>");
 });
 
-///////////////////////////////////////////////////////////
-// AJAX CALLS
-///////////////////////////////////////////////////////////
+
+
+// ____________________AJAX CALLS____________________ //
+
 
 ///////// WEATHER UNDERGROUND /////////
 
 // This is our API Key - https://home.openweathermap.org/api_keys
-var APIKey = "d4bcc2842a7e6378";
+var APIKey = "919a8794f58e0301";
 
-var queryURL = "http://api.wunderground.com/api/" + APIKey + "/geolookup/conditions/q/TX/Austin.json";
+var queryURL = "http://api.wunderground.com/api/" + APIKey + "/geolookup/conditions/q/IL/Chicago.json";
+
+
 
 // AJAX call for weather
 $.ajax({ url: queryURL, method: 'GET' }).done(function(response) {
 
-    if (response.current_observation.feelslike_f > 85) {
-        $("#temp-warning").html("Looks like it's pretty hot outside.  You may want to consider looking for places to play inside.");
-    } else {
-        $("#temp-warning").html("Looks like the weather is pretty nice outside!  Consider looking for an outside area to play!");
-    };
-
-    if (response.current_observation.wind_gust_mph > 25) {
-        $("#wind-warning").html("Looks like it's pretty windy out there.  Be sure to throw your disc straight and true!")
-    } else {
-        $("#wind-warning").html("The wind isn't gusting very much and shouldn't mess with your game today!  Have fun!");
-    };
-
-    $("#weather").html(response.current_observation.weather);
-    $("#temp").html(response.current_observation.temp_f);
-    $("#feels-like").html(response.current_observation.feelslike_f);
-    $("#heat-index").html(response.current_observation.heat_index_f);
-    $("#forecast-url").html(response.current_observation.forecast_url);
+    $("#location-1").html(response.current_observation.weather);
+    $("#location-2").html(response.current_observation.temp_f);
+    $("#location-3").html(response.current_observation.feelslike_f);
+    $("#location-4").html(response.current_observation.heat_index_f);
+    $("#location-5").html(response.current_observation.forecast_url);
 
 });
 
-///////////////////////////////////////////////////////////
-// FIREBASE
-///////////////////////////////////////////////////////////
+
+
+// ____________________FIREBASE____________________ //
+
 
 // Link to Firebase
-var pickupData = new Firebase("https://pkupgames.firebaseio.com/");
+var pickupData = new Firebase("https://nwuproject1.firebaseio.com");
 
-// Button for adding pickupGame
+// Button for Submitting New Dog
 $("#addPickupGame").on("click", function(e) {
 
-    // prevents reloading of page
+    // Prevents reloading of page
     e.preventDefault();
 
-    if  (($("#user-name-input").val() == "") || ($("#game-name-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
+    if  (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
             vex.dialog.alert("Please enter the necessary information into the form");
             return false;
         };
 
     // Grabs user input
     var pickupGameType = $("#dropdownMenu1").val().trim();
-    var pickupUserName = $("#user-name-input").val().trim();
-    var pickupGameName = $("#game-name-input").val().trim();
+    var pickupUserName = $("#dog-color-input").val().trim();
+    var pickupGameName = $("#dog-size-input").val().trim();
     var pickupLocation = $("#location-input").val().trim();
     var pickupDate = $("#date-input").val().trim();
     var pickupTime = $("#time-input").val().trim();
@@ -199,15 +154,15 @@ $("#addPickupGame").on("click", function(e) {
     }
 
     // Clears all of the input fields
-    $("#dropdownMenu1").html("Sport & Game Type" + "<span class='caret'></span>");
-    $("#user-name-input").val("");
-    $("#game-name-input").val("");
+    $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
+    $("#dog-color-input").val("");
+    $("#dog-size-input").val("");
     $("#location-input").val("");
     $("#date-input").val("");
     $("#time-input").val("");
 
     // Success message
-    vex.dialog.alert("Your game was successfully added to our database!  Check the 'Find Game' page to see your game.");
+    vex.dialog.alert("Your dog was successfully added to our database!");
 
 });
 
