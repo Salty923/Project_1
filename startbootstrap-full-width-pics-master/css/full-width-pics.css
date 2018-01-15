@@ -6,6 +6,7 @@
 
 body {
   padding-top: 54px;
+  overflow-x: hidden;
 }
 
 @media (min-width: 992px) {
@@ -29,26 +30,25 @@ body {
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: 100%;
-  height: 100%;
-  width: 100%;
+  
   
  
 }
 
 #firstDog{
   margin-top: -5%;
+  
 }
 
 #secondDog{
-  max-width:100%;
-  max-height:auto;
+ 
   margin-bottom: -12%;
 }
 
 .lost, .found{
   font-family: 'Shadows Into Light', cursive;
   color: black;
-  width: 15%;
+  width: 25%;
   margin: 0 auto;
   display: block;
    border: none;
@@ -70,7 +70,7 @@ a:hover {
 #lostandfound{
   position: relative;
   margin: 5%;
-  left: 32%;
+  left: 28%;
   top: 1px;
 }
 
@@ -84,6 +84,44 @@ a:hover {
   margin-top: 5%;
   bottom: 0;  
   
+}
+
+@media (min-width: 575px) {
+  #firstDog{
+    margin-top: -9%;
+  }
+
+  #secondDog{
+    margin-bottom: -19%;
+  }
+
+  #lostandfound{
+    top: 25px;
+  }
+}
+
+@media (min-width: 768px) {
+  #firstDog{
+    margin-top: -7%;
+  }
+  #secondDog{
+    margin-bottom: -16%;
+  }
+}
+
+@media (min-width: 992px){
+  #firstDog{
+    margin-top: -6%;
+  }
+  #secondDog{
+    margin-bottom: -14%;
+  }
+}
+
+@media (min-width: 1200px) {
+  #secondDog{
+    margin-bottom: -12%;
+  }
 }
 
 
