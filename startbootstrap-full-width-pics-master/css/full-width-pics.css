@@ -81,11 +81,14 @@ a:hover {
 }
 
 #footerChange{
-  margin-top: 5%;
+  margin-top: 10%;
   bottom: 0;  
   
 }
-
+.small{
+  font-size: 12px;
+  color: rgb(172, 161, 161);
+}
 @media (min-width: 575px) {
   #firstDog{
     margin-top: -9%;
