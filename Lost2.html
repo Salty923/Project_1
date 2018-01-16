@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
         <!--  STYLESHEET -->
     <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
+    <!--  STYLESHEET -->
+    <link rel="stylesheet" type="text/css" href="assets/css/map.css">
     <!-- Firebase Reference -->
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
     <!-- Latest compiled and minified jQuery -->
@@ -91,15 +93,54 @@
 
             <!-- MAP HOLDER -->
             <div class="col-xs-6 col-lg-5">
-                <div id="map-holder">
-                    <!-- INITIAL MAP -->
-                    <iframe class="visible create-game-map" id="init-map" width="458" height="440" frameborder="0" src="https://www.google.com/maps/embed/v1/view?zoom=10&center=41.8781,-87.6298&key=AIzaSyA3Qc-NrPzqioe6_w80_FL8xanuXIgCAtA"></iframe>
-                    <!-- BASKETBALL MAP -->
-                    <iframe class="hidden create-game-map" id="basketball-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/view?zoom=10&center=41.8781,-87.6298&key=AIzaSyA3Qc-NrPzqioe6_w80_FL8xanuXIgCAtA'></iframe>
-                    <!-- SOCCER MAP -->
-                    <iframe class="hidden create-game-map" id="soccer-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/view?zoom=10&center=41.8781,-87.6298&key=AIzaSyA3Qc-NrPzqioe6_w80_FL8xanuXIgCAtA'></iframe>
-                    <!-- DISC GOLF MAP -->
-                    <iframe class="hidden create-game-map" id="disc-golf-map" width='458' height='440' frameborder='0' src='https://www.google.com/maps/embed/v1/view?zoom=10&center=41.8781,-87.6298&key=AIzaSyA3Qc-NrPzqioe6_w80_FL8xanuXIgCAtA'></iframe>
+                <div id="findhotels">
+                    Find hotels in:
+                </div>
+                
+                <div id="locationField">
+                    <input id="autocomplete" placeholder="Enter a city" type="text" />
+                </div>
+                
+                <div id="controls">
+                    <select id="country">
+                        <option value="us" selected>U.S.A.</option>
+                    </select>
+                </div>
+                
+                <div id="map"></div>
+                <button id="add">Add Maps</button>
+                
+                <div id="listing">
+                    <table id="resultsTable">
+                        <tbody id="results"></tbody>
+                    </table>
+                </div>
+                
+                <div style="display: none">
+                    <div id="info-content">
+                        <table>
+                            <tr id="iw-url-row" class="iw_table_row">
+                                <td id="iw-icon" class="iw_table_icon"></td>
+                                <td id="iw-url"></td>
+                            </tr>
+                            <tr id="iw-address-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Address:</td>
+                                <td id="iw-address"></td>
+                            </tr>
+                            <tr id="iw-phone-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Telephone:</td>
+                                <td id="iw-phone"></td>
+                            </tr>
+                            <tr id="iw-rating-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Rating:</td>
+                                <td id="iw-rating"></td>
+                            </tr>
+                            <tr id="iw-website-row" class="iw_table_row">
+                                <td class="iw_attribute_name">Website:</td>
+                                <td id="iw-website"></td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
             
@@ -130,6 +171,13 @@
 
         </div>
     </div>
+
+    <!--Google Maps API Link-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD5RPirzhWeP7uoUXTPEUyHHxvE5RMUvGg&libraries=places&callback=initMap"
+        async defer></script>
+    <!--maps javascript code-->
+    <script src="assets/javascript/maplost.js"></script>
+    
     <!-- MOMENT JS -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <!-- Latest compiled and minified BOOTSTRAP JS -->
