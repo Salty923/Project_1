@@ -83,7 +83,7 @@ a:hover {
 #footerChange{
   margin-top: 10%;
   bottom: 0;  
-  
+  background-color: rgba(0, 0, 0, 0.8);
 }
 .small{
   font-size: 12px;
