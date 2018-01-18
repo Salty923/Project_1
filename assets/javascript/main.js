@@ -119,52 +119,52 @@ $.ajax({ url: queryURL, method: 'GET' }).done(function(response) {
 var pickupData = new Firebase("https://nwuproject1.firebaseio.com");
 
 // Button for Submitting New Dog
-$("#addPickupGame").on("click", function(e) {
+// $("#addDog").on("click", function(e) {
 
-    // Prevents reloading of page
-    e.preventDefault();
+//     // Prevents reloading of page
+//     e.preventDefault();
 
-    if  (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
-            vex.dialog.alert("Please enter the necessary information into the form");
-            return false;
-        };
+//     if  (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
+//             vex.dialog.alert("Please enter the necessary information into the form");
+//             return false;
+//         };
 
     // Grabs user input
-    var pickupGameType = $("#dropdownMenu1").val().trim();
-    var pickupUserName = $("#dog-color-input").val().trim();
-    var pickupGameName = $("#dog-size-input").val().trim();
-    var pickupLocation = $("#location-input").val().trim();
-    var pickupDate = $("#date-input").val().trim();
-    var pickupTime = $("#time-input").val().trim();
+    // var pickupGameType = $("#dropdownMenu1").val().trim();
+    // var pickupUserName = $("#dog-color-input").val().trim();
+    // var pickupGameName = $("#dog-size-input").val().trim();
+    // var pickupLocation = $("#location-input").val().trim();
+    // var pickupDate = $("#date-input").val().trim();
+    // var pickupTime = $("#time-input").val().trim();
 
-    if (checkGameType(pickupGameType) && checkUserName(pickupUserName) && checkGameName(pickupGameName) && checkLocation(pickupLocation) && checkDate(pickupDate) && checkTime(pickupTime)) {
-        var newPickup = {
-            type: pickupGameType,
-            userName: pickupUserName,
-            gameName: pickupGameName,
-            location: pickupLocation,
-            date: pickupDate,
-            time: pickupTime
-        }
+    // if (checkGameType(pickupGameType) && checkUserName(pickupUserName) && checkGameName(pickupGameName) && checkLocation(pickupLocation) && checkDate(pickupDate) && checkTime(pickupTime)) {
+    //     var newPickup = {
+    //         type: pickupGameType,
+    //         userName: pickupUserName,
+    //         gameName: pickupGameName,
+    //         location: pickupLocation,
+    //         date: pickupDate,
+    //         time: pickupTime
+    //     }
 
-        pickupData.push(newPickup);
+    //     pickupData.push(newPickup);
 
-    } else {
-        return false;
-    }
+    // } else {
+    //     return false;
+    // }
 
     // Clears all of the input fields
-    $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
-    $("#dog-color-input").val("");
-    $("#dog-size-input").val("");
-    $("#location-input").val("");
-    $("#date-input").val("");
-    $("#time-input").val("");
+//     $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
+//     $("#dog-color-input").val("");
+//     $("#dog-size-input").val("");
+//     $("#location-input").val("");
+//     $("#date-input").val("");
+//     $("#time-input").val("");
 
-    // Success message
-    vex.dialog.alert("Your dog was successfully added to our database!");
+//     // Success message
+//     vex.dialog.alert("Your dog was successfully added to our database!");
 
-});
+// });
 
 
 pickupData.on("child_added", function(childSnapshot, prevChildKey) {

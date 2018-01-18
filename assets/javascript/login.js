@@ -1,7 +1,4 @@
 
-
-//<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
-
 // Initialize Firebase
 var config = {
 apiKey: "AIzaSyCY_YbuxtgsKPyTNvN0cnzCAWHr51RMJ84",
@@ -20,9 +17,20 @@ var database = firebase.database();
 
 var user = firebase.auth().currentUser;
 
+var dbUsers = database.ref("users");
+
+var signedIn = false;
+
+var dogBreed = $("#dropdownMenu1").val().trim();
+var dogColor = $("#dog-color-input").val().trim();
+var dogSize = $("#dog-size-input").val().trim();
+var dogLocation = $("#location-input").val();
+var dogDate = $("#date-input").val().trim();
+var dogTime = $("#time-input").val().trim();
 
 
-$("#signInBtn").on("click",function () {
+
+$("#customBtn").on("click",function () {
     firebase.auth().signInWithRedirect(provider);
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
@@ -61,13 +69,53 @@ $("#signOutBtn").on("click", function () {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
+        signedIn = true;
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
-        database.ref("users").child(user.uid).set({
-            provider: "me",
+        dbUsers.child(user.uid).once("value", function (snapshot) {
+            if (snapshot.val() !== null) {
+                alert("user exist");
+                return;
+            } else {
+                signedIn = false;
+            }
         })
     } else {
         // No user is signed in.
+        signedIn = false;
         $("#currentUser").html("Please sign in");
+    }
+});
+
+// Button for Submitting New Dog
+$("#addDog").on("click", function (e) {
+
+    // Prevents reloading of page
+    e.preventDefault();
+
+    if(signedIn = false){
+        vex.dialog.alert("Please sign in to store your data");
+    }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
+        vex.dialog.alert("Please enter the necessary information into the form");
+    }else{
+        // Clears all of the input fields
+        $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
+        $("#dog-color-input").val("");
+        $("#dog-size-input").val("");
+        $("#location-input").val("");
+        $("#date-input").val("");
+        $("#time-input").val("");
+
+        // Success message
+        vex.dialog.alert("Your dog was successfully added to our database!");
+        //store to firebase
+        database.ref("users").child(user.uid).push({
+            breed: dogBreed,
+            color: dogBreed,
+            size: dogSize,
+            location: dogLocation,
+            date: dogDate,
+            time: dogTime,
+        })
     }
 });

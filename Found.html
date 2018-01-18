@@ -14,6 +14,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/style2.css">
     <!--  STYLESHEET -->
     <link rel="stylesheet" type="text/css" href="assets/css/map.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
     <!-- Firebase Reference -->
     <script src="https://cdn.firebase.com/js/client/2.4.1/firebase.js"></script>
 </head>
@@ -25,8 +26,16 @@
                 <div id="logo">Find Fido</div>
             </a>
             <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="Lost2.html" class="navbar-link-author" style="color:white; background-color:rgba(0, 0, 0, 0.8);">Report<span class="sr-only">(current)</span></a></li>
+
+                <li class="active"><a href="Lost2.html" class="navbar-link-author" style="color:white; background-color:rgba(0, 0, 0, 0.8);">Report<span class="sr-only">(current)</span></a></li>
                 <li class="active"><a href="Found.html" class="navbar-link-author" style="color:white; background-color:rgba(0, 0, 0, 0.8);">Search<span class="sr-only">(current)</span></a></li>
+                <li class="nav-item">
+                    <div id="customBtn" class="customGPlusSignIn">
+                        <span class="icon"></span>
+                        <span class="buttonText">Sign In</span>
+                    </div>
+                </li>
+
             </ul>
         </div>
     </nav>
@@ -156,6 +165,11 @@
         vex.dialog.alert("Click on any dog's location to see a pin on the map.");
     });
     </script>
+
+    <!--Firevbase-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+    
+    <script src="assets/javascript/login.js"></script>
    
 </body>
 
