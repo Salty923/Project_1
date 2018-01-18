@@ -119,15 +119,15 @@ $.ajax({ url: queryURL, method: 'GET' }).done(function(response) {
 var pickupData = new Firebase("https://nwuproject1.firebaseio.com");
 
 // Button for Submitting New Dog
-$("#addPickupGame").on("click", function(e) {
+// $("#addDog").on("click", function(e) {
 
-    // Prevents reloading of page
-    e.preventDefault();
+//     // Prevents reloading of page
+//     e.preventDefault();
 
-    if  (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
-            vex.dialog.alert("Please enter the necessary information into the form");
-            return false;
-        };
+//     if  (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
+//             vex.dialog.alert("Please enter the necessary information into the form");
+//             return false;
+//         };
 
     // Grabs user input
     var pickupGameType = $("#dropdownMenu1").val().trim();

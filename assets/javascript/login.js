@@ -19,6 +19,15 @@ var user = firebase.auth().currentUser;
 
 var dbUsers = database.ref("users");
 
+var signedIn = false;
+
+var dogBreed = $("#dropdownMenu1").val().trim();
+var dogColor = $("#dog-color-input").val().trim();
+var dogSize = $("#dog-size-input").val().trim();
+var dogLocation = $("#location-input").val().trim();
+var dogDate = $("#date-input").val().trim();
+var dogTime = $("#time-input").val().trim();
+
 
 
 $("#customBtn").on("click",function () {
@@ -60,6 +69,7 @@ $("#signOutBtn").on("click", function () {
 firebase.auth().onAuthStateChanged(function (user) {
     if (user) {
         // User is signed in.
+        signedIn = true;
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
         dbUsers.child(user.uid).once("value", function (snapshot) {
@@ -75,6 +85,41 @@ firebase.auth().onAuthStateChanged(function (user) {
         })
     } else {
         // No user is signed in.
+        signedIn = false;
         $("#currentUser").html("Please sign in");
+    }
+});
+
+// Button for Submitting New Dog
+$("#addDog").on("click", function (e) {
+
+    // Prevents reloading of page
+    e.preventDefault();
+
+    if(signedIn = false){
+        vex.dialog.alert("Please sign in to store your data");
+    }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
+        vex.dialog.alert("Please enter the necessary information into the form");
+        return false;
+    }else{
+        // Clears all of the input fields
+        $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
+        $("#dog-color-input").val("");
+        $("#dog-size-input").val("");
+        $("#location-input").val("");
+        $("#date-input").val("");
+        $("#time-input").val("");
+
+        // Success message
+        vex.dialog.alert("Your dog was successfully added to our database!");
+        //store to firebase
+        database.ref("users").child(user.uid).push({
+            breed: dogBreed,
+            color: dogBreed,
+            size: dogSize,
+            location: dogLocation,
+            date: dogDate,
+            time: dogTime,
+        })
     }
 });
