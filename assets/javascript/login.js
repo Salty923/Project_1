@@ -17,6 +17,8 @@ var database = firebase.database();
 
 var user = firebase.auth().currentUser;
 
+var dbUsers = database.ref("users");
+
 
 
 $("#customBtn").on("click",function () {
