@@ -1,5 +1,4 @@
 
-
 //<script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 
 // Initialize Firebase
@@ -22,7 +21,7 @@ var user = firebase.auth().currentUser;
 
 
 
-$("#signInBtn").on("click",function () {
+$("#customBtn").on("click",function () {
     firebase.auth().signInWithRedirect(provider);
     firebase.auth().getRedirectResult().then(function (result) {
         if (result.credential) {
@@ -63,8 +62,16 @@ firebase.auth().onAuthStateChanged(function (user) {
         // User is signed in.
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
-        database.ref("users").child(user.uid).set({
-            provider: "me",
+        dbUsers.child(user.uid).once("value", function (snapshot) {
+            if (snapshot.val() !== null) {
+                alert("user exist");
+                return;
+            } else {
+                database.ref("users").child(user.uid).set({
+                    provider: "me",
+                    place: "Munster"
+                })
+            }
         })
     } else {
         // No user is signed in.
