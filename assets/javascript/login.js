@@ -24,7 +24,7 @@ var signedIn = false;
 var dogBreed = $("#dropdownMenu1").val().trim();
 var dogColor = $("#dog-color-input").val().trim();
 var dogSize = $("#dog-size-input").val().trim();
-var dogLocation = $("#location-input").val().trim();
+var dogLocation = $("#location-input").val();
 var dogDate = $("#date-input").val().trim();
 var dogTime = $("#time-input").val().trim();
 
