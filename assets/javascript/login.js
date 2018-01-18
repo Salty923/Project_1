@@ -77,10 +77,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 alert("user exist");
                 return;
             } else {
-                database.ref("users").child(user.uid).set({
-                    provider: "me",
-                    place: "Munster"
-                })
+                signedIn = false;
             }
         })
     } else {
@@ -100,7 +97,6 @@ $("#addDog").on("click", function (e) {
         vex.dialog.alert("Please sign in to store your data");
     }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
         vex.dialog.alert("Please enter the necessary information into the form");
-        return false;
     }else{
         // Clears all of the input fields
         $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
