@@ -37,7 +37,7 @@ body {
 
 #firstDog{
   margin-top: -5%;
-  padding: 10%;
+  padding: 5%;
   
 }
 
@@ -53,13 +53,13 @@ body {
   width: 25%;
   margin: 0 auto;
   display: block;
-   border: none;
-    background-color: rgb(206, 231, 240);
-    padding: 16px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 30px;
+  background-color: rgb(245, 249, 250);
+  box-shadow: 0 8px 6px -6px black;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 30px;
    
 }
 
@@ -71,8 +71,8 @@ a:hover {
  
 #lostandfound{
   position: relative;
-  margin: 8%;
-  left: 19%;
+  margin: 11%;
+  left: -14%;
   
   
 }
