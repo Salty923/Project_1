@@ -1,6 +1,9 @@
 /***************************************************************/
 /*Body Stylings*/
 /***************************************************************/
+body{
+    overflow-x: hidden;
+}
 body.landing-page {
     background: url(../images/basketballBG.jpg)no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -171,7 +174,7 @@ a:active {
 #weather-info-div {
     height: 440px;
     border-radius: 5px;
-    background-color: rgb(206, 231, 240);
+    background-color: rgba(206, 231, 240, 0.8);
     padding: 10px;
 }
 
