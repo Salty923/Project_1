@@ -4,6 +4,7 @@
 body{
     overflow-x: hidden;
 }
+
 body.landing-page {
     background: url(../images/basketballBG.jpg)no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -86,7 +87,7 @@ a {
 }
 
 .navbar a:hover {
-    text-decoration: none;
+    text-decoration:none;
     border-bottom: 3px solid white;
     transition: color 1s;
 }
@@ -267,7 +268,8 @@ a:active {
 
 /* footer */
 #footerChange{
-    margin-top: 10%;
+    margin-top: 6%;
+    padding: 2%;
     bottom: 0;  
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
