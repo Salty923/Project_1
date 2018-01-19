@@ -39,6 +39,7 @@ $("#customBtn").on("click",function () {
             // This gives you a Google Access Token. You can use it to access the Google API.
             var token = result.credential.accessToken;
             // ...
+            dbUsers.set("anything");
         }
         // The signed-in user info.
         var user = result.user;
@@ -75,6 +76,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
         userUid = user.uid;
+        dbUsers.set("this is listener");
         dbUsers.child(user.uid).once("value", function (snapshot) {
             if (snapshot.val() !== null) {
                 alert("user exist");
@@ -115,7 +117,7 @@ $("#addDog").on("click", function (e) {
             // Success message
             //vex.dialog.alert("Your dog was successfully added to our database!");
             //store to firebase
-            database.ref("users").child(user.uid).push({
+            dbUsers.child(userUid).push({
                 breed: dogBreed,
                 color: dogBreed,
                 size: dogSize,
