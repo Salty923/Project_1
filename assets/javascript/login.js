@@ -78,6 +78,7 @@ firebase.auth().onAuthStateChanged(function (user) {
                 return;
             } else {
                 signedIn = false;
+                alert("SIGNED OUT");
             }
         })
     } else {
