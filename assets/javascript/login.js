@@ -95,7 +95,7 @@ $("#addDog").on("click", function (e) {
     e.preventDefault();
 
     if(signedIn = false){
-        vex.dialog.alert("Please sign in to store your data");
+        alert("Please sign in to store your data");
     }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
         alert("Please enter the necessary information into the form");
     }else{
