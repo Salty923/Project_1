@@ -36,7 +36,7 @@ function initMap() {
     autocomplete = new google.maps.places.Autocomplete(
             /** @type {!HTMLInputElement} */(
             document.getElementById('autocomplete')), {
-            types: ['(cities)'],
+            types: ['(geocode)'],
             componentRestrictions: countryRestrict
         });
     places = new google.maps.places.PlacesService(map);
