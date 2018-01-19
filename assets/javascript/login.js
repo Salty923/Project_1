@@ -126,6 +126,6 @@ $("#addDog").on("click", function (e) {
             })
         }
     }
-}
+
     
 });
