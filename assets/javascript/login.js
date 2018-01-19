@@ -97,7 +97,7 @@ $("#addDog").on("click", function (e) {
     if(signedIn = false){
         vex.dialog.alert("Please sign in to store your data");
     }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
-        vex.dialog.alert("Please enter the necessary information into the form");
+        alert("Please enter the necessary information into the form");
     }else{
         // Clears all of the input fields
         $("#dropdownMenu1").html("Dog Breed" + "<span class='caret'></span>");
