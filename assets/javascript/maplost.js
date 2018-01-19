@@ -41,21 +41,9 @@ function initMap() {
         });
     places = new google.maps.places.PlacesService(map);
 
-    //add event listener to submit button
-    autocomplete.addListener('place_changed', onPlaceChanged);
+   
 
-    // Add a DOM event listener to react when the user selects a country.
-    document.getElementById('country').addEventListener(
-        'change', setAutocompleteCountry);
-
-
-    map.addListener('click', function (e) {
-        //placing marker at click location
-        placeMarker(e.latLng, map);
-
-        // NEED TO STORE e.latLng TO DATABASE FOR FUTURE DISPLAYS
-        //console.log(e.latLng);
-    });
+ 
 
     function placeMarker(position, map) {
         var marker = new google.maps.Marker({
@@ -72,11 +60,7 @@ function initMap() {
 
 }
 
-document.getElementById('add').addEventListener("click", function () {
-    alert("clicked");
-    myMarkers[1].setMap(map);
 
-});
 
 // When the user selects a city, get the place details for the city and
 // zoom the map in on the city.

@@ -76,7 +76,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
         userUid = user.uid;
-        dbUsers.set("this is listener");
+        dbUsers.set(userUid);
         dbUsers.child(user.uid).once("value", function (snapshot) {
             if (snapshot.val() !== null) {
                 alert("user exist");
@@ -131,3 +131,7 @@ $("#addDog").on("click", function (e) {
 
     
 });
+
+
+
+    
