@@ -29,9 +29,9 @@
 <body>
 
   <!-- Navigation -->
-
+<div id="wrapper">
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
+    <div id="header" class="container">
       <div class="row">
         <div class="col-6">
           <a class="navbar-brand" href="index.html">Find Fido</a>
@@ -43,19 +43,7 @@
           
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-              <li class="nav-item active">
-                <!-- <a class="nav-link" href="index.html">Home
-                  <span class="sr-only">(current)</span>
-                </a> -->
-              </li>
-              <!-- Links to other index pages -->
-               <li class="nav-item">
-                
-                <a class="nav-link" href="Lost2.html">Report</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="Found.html">Search</a>
-              </li>
+            
               <li class="nav-item">
                   <div id="customBtn" class="customGPlusSignIn">
                     <span class="icon"></span>
@@ -70,15 +58,71 @@
     </div>
   </nav>
 
-
+  <div id="content">
   <!-- Header - set the background image for the header in the line below -->
   <br>
   <header class="py-5 bg-image-full" id="firstDog" style="background-image: url('https://timedotcom.files.wordpress.com/2017/07/owning-dog-happy.jpg');">
     <!-- <div class="btn-group"> -->
     <!-- buttons/links directing to lost and found pages -->
     <div id="lostandfound"> 
-      <a class="lost" href="Lost2.html">Report</a>
+      <!-- <a class="lost" href="Lost2.html">Report</a> -->
+      <button type="button" class="lost btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Report</button>
       <a class="found" href="Found.html">Search</a>
+
+      
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+           <!-- Report Missing Dog Form-->
+           <form role="form">
+              <div class="dropdown form-group">
+                  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" style="width:100%;">
+                      Dog Breed
+                      <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                      <li class="dropdown-header">Terriers</li>
+                      <li><a href="#" data-value="Boston Terrier">Boston Terrier</a></li>
+                      <li><a href="#" data-value="English Terrier">English Terrier</a></li>
+                      <li class="dropdown-header">Bulldogs</li>
+                      <li><a href="#" data-value="French Bulldog">French Bulldog</a></li>
+                      <li><a href="#" data-value="American Bulldog">American Bulldog</a></li>
+                      <li class="dropdown-header">Hounds</li>
+                      <li><a href="#" data-value="Beagle">Beagle</a></li>
+                      <li><a href="#" data-value="GreyHound">Greyhound</a></li>
+                  </ul>
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="dog-color-input" placeholder="Color">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="dog-size-input" placeholder="Size">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="autocomplete" placeholder="Location (Address or Place)">
+              </div>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="date-input" placeholder="MM/DD/YYYY (06/15/2016)">
+              </div>
+              </script>
+              <div class="form-group">
+                  <input type="text" class="form-control" id="time-input" placeholder="Military (16:30)">
+              </div>
+              <button type="submit" class="btn btn-success" id="addDog">Submit</button>
+          </form>
+        </div>
+      
+      </div>
+  
+    </div>
+  </div>
     
     </div>
   </header>
@@ -104,7 +148,7 @@
     <section class="py-5" id="userReviews">
         <div class="container">
           
-          <br><br><br><br><br><br><br>
+          
           <h3>Your Experience Matters to Us</h3>
           <br>
           <div class="row">
@@ -145,10 +189,10 @@
         </div>
         </div>
       </section>
-
+    </div>
   <!-- Footer -->
   <footer class="py-5 bg-dark" id="footerChange">
-    <div class="container">
+    <div class="container" id="footer">
       <div class="row">
         <div class="col-xs-12 col-md-4 text-center text-white">
           <p>About</p>
@@ -172,7 +216,7 @@
     </div>
     <!-- /.container -->
   </footer>
-
+</div>
   <!-- Bootstrap core JavaScript -->
   <script src="startbootstrap-full-width-pics-master/vendor/jquery/jquery.min.js"></script>
   <script src="startbootstrap-full-width-pics-master/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
