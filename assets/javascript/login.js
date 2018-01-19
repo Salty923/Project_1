@@ -107,7 +107,7 @@ $("#addDog").on("click", function (e) {
         $("#time-input").val("");
 
         // Success message
-        vex.dialog.alert("Your dog was successfully added to our database!");
+        //vex.dialog.alert("Your dog was successfully added to our database!");
         //store to firebase
         database.ref("users").child(user.uid).push({
             breed: dogBreed,
