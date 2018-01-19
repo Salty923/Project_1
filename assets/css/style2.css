@@ -1,8 +1,15 @@
 /***************************************************************/
 /*Body Stylings*/
 /***************************************************************/
+html{
+    height:100%;
+    width:100%;
+}
+
 body{
     overflow-x: hidden;
+    height: 100%;
+    width: 100%;
 }
 
 body.landing-page {
@@ -46,7 +53,7 @@ body.createGame {
 }
 
 #homeTitle {
-    font-family: 'Shadows Into Light', cursive;
+    font-family: 'BenchNine', sans-serif;
     font-size: 15em;
 }
 
@@ -73,8 +80,9 @@ body.createGame {
 }
 
 #logo {
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2.5em;
+    font-family: 'BenchNine', sans-serif;
+    letter-spacing: -3px;
+    font-size: 2em;
     color: white;
     padding: 10px;
     margin: 10px 10px;
@@ -268,11 +276,12 @@ a:active {
 
 /* footer */
 #footerChange{
-    margin-top: 6%;
-    padding: 2%;
-    bottom: 0;  
+    margin-top: 3%;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
+    position:absolute;
+    bottom:0;
+    width:100%;
   }
 
   .small{

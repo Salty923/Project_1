@@ -22,7 +22,7 @@ body {
 }
 
 #logo{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   font-size: 2em;
   width: 5%;
   color: white;
@@ -54,7 +54,7 @@ body {
 }
 
 .lost, .found{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   color: black;
   width: 25%;
   margin: 0 auto;
@@ -88,14 +88,17 @@ button:hover, a:hover {
 }
 
 .navbar-brand{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   font-size: 2em;
   height: 45px;
 }
 
 #userReviews{
   margin-bottom: -15%;
+  position: relative;
+  padding-top: 14%;
 }
+
 
 			
 #footerChange{
