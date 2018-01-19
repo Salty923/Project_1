@@ -100,7 +100,6 @@ $("#addDog").on("click", function (e) {
     return userid;
         // Prevents reloading of page
         e.preventDefault();
-        console.log(user.uid);
         if(signedIn = false){
             alert("Please sign in to store your data");
         }else if (($("#dog-color-input").val() == "") || ($("#dog-size-input").val() == "") || ($("#location-input").val() == "") || ($("#date-input").val() == "") || ($("#time-input").val() == "")) {
