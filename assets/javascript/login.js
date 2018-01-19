@@ -78,13 +78,13 @@ firebase.auth().onAuthStateChanged(function (user) {
                 return;
             } else {
                 signedIn = false;
-                alert("SIGNED OUT");
+                
             }
         })
     } else {
         // No user is signed in.
         signedIn = false;
-        $("#currentUser").html("Please sign in");
+        alert("SIGNED OUT");
     }
 });
 
