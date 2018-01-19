@@ -74,7 +74,7 @@ firebase.auth().onAuthStateChanged(function (user) {
         signedIn = true;
         $("#currentUser").html("Welcome");
         console.log("Welcome UID:" + user.uid);
-        userID(user.uid);
+        userUid = user.uid;
         dbUsers.child(user.uid).once("value", function (snapshot) {
             if (snapshot.val() !== null) {
                 alert("user exist");
@@ -95,9 +95,8 @@ firebase.auth().onAuthStateChanged(function (user) {
 
 // Button for Submitting New Dog
 $("#addDog").on("click", function (e) {
-
-    function userID(userid){
-    return userid;
+    console.log(userUid);
+    
         // Prevents reloading of page
         e.preventDefault();
         if(signedIn = false){
@@ -125,7 +124,7 @@ $("#addDog").on("click", function (e) {
                 time: dogTime,
             })
         }
-    }
+    
 
     
 });
