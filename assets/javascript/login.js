@@ -117,6 +117,7 @@ $("#addDog").on("click", function (e) {
             // Success message
             //vex.dialog.alert("Your dog was successfully added to our database!");
             //store to firebase
+
             dbUsers.child(userUid).push({
                 breed: dogBreed,
                 color: dogBreed,
