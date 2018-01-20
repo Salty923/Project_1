@@ -79,7 +79,6 @@ firebase.auth().onAuthStateChanged(function (user) {
         dbUsers.set(userUid);
         dbUsers.child(user.uid).once("value", function (snapshot) {
             if (snapshot.val() !== null) {
-                alert("user exist");
                 return;
             } else {
                 signedIn = false;
@@ -89,7 +88,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     } else {
         // No user is signed in.
         signedIn = false;
-        alert("SIGNED OUT");
+       
     }
 });
 
