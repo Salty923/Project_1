@@ -275,13 +275,16 @@ a:active {
 }
 
 /* footer */
+
 #footerChange{
     margin-top: 3%;
     background-color: rgba(0, 0, 0, 0.8);
     color: white;
-    position:absolute;
     bottom:0;
     width:100%;
+    margin-top: 10%;
+    padding-bottom: 0%; 
+ 
   }
 
   .small{
