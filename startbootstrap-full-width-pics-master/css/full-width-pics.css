@@ -3,9 +3,15 @@
  * Copyright 2013-2017 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-full-width-pics/blob/master/LICENSE)
  */
-
+ html{
+  height: 100%;
+  width: 100%;
+ }
+ 
 body {
-  padding-top: 54px;
+  width: 100%;
+  height: 100%;
+  /* padding-top: 54px; */
   overflow-x: hidden;
 }
 
@@ -16,7 +22,7 @@ body {
 }
 
 #logo{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   font-size: 2em;
   width: 5%;
   color: white;
@@ -48,7 +54,7 @@ body {
 }
 
 .lost, .found{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   color: black;
   width: 25%;
   margin: 0 auto;
@@ -63,7 +69,11 @@ body {
    
 }
 
-a:hover {
+.lost{
+  margin-top: -13px;
+}
+
+button:hover, a:hover {
     text-decoration: none;
     border-bottom: 3px solid white;
     transition: color 1s;
@@ -78,14 +88,17 @@ a:hover {
 }
 
 .navbar-brand{
-  font-family: 'Shadows Into Light', cursive;
+  font-family: 'BenchNine', sans-serif;
   font-size: 2em;
   height: 45px;
 }
 
 #userReviews{
   margin-bottom: -15%;
+  position: relative;
+  padding-top: 14%;
 }
+
 
 			
 #footerChange{
