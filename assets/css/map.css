@@ -83,3 +83,24 @@
       .iw_table_icon {
         text-align: right;
       }
+
+      .pac-container {
+      z-index: 10000 !important;
+    }
+
+  
+
+iframe {
+  display: block;
+  margin: auto;
+}
+
+.map {
+  border: 1px solid #ccc;
+  background-color: #efefef;
+  height: 300px;
+}
+
+#addr{
+  width: 100%;
+}

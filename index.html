@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-
+  <link rel="shortcut icon" href="assets/images/fav.jpg" type="image/x-icon">
 
   <!-- Bootstrap core CSS -->
   <link href="startbootstrap-full-width-pics-master/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,17 +22,13 @@
   <!-- Custom styles for this template -->
   <link href="startbootstrap-full-width-pics-master/css/full-width-pics.css" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/auth.css">
+  <!-- map css  -->
+  <link rel="stylesheet" href="assets/css/map.css">
 
   <!--Google Maps API Link-->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTQplToC7vrZZPdPirJm0clLpN3YbMW6U&libraries=places"></script>
-
+  <script src="assets/javascript/maplost.js"></script>
   <title id="logo">Find Fido</title>
-
-  <style>
-    .pac-container {
-      z-index: 10000 !important;
-    }
-  </style>
 
 </head>
 
@@ -118,7 +114,7 @@
                   <input type="text" class="form-control" id="dog-size-input" placeholder="Size">
               </div>
               <div class="form-group">
-                  <input type="text" class="form-control" id="locationTextField" placeholder="Location (Address or Place)">
+                  <input id="addr" type="text" value="Chicago,Il" placeholder="Location (Address or Place)">
               </div>
               <div class="form-group">
                   <input type="text" class="form-control" id="date-input" placeholder="MM/DD/YYYY (06/15/2016)">
@@ -129,6 +125,21 @@
               </div>
               <button type="submit" class="btn btn-success" id="addDog">Submit</button>
           </form>
+          <p>
+            <label for="addr">
+              <strong>Address</strong>
+            </label>
+            <br>
+            <!-- <input id="addr" type="text" value="Chicago,Il" size="80"> -->
+            <button id="creaMappa" type="button">Build map</button>
+          </p>
+          <p>Drag the cursor to change coordinates</p>
+          <p>
+            <strong>Coords</strong>:
+            <span id="lat">--</span>,
+            <span id="lng">--</span>
+          </p>
+          <div class="map" id="map1"></div>
         </div>
       
       </div>
@@ -233,15 +244,6 @@
   </footer>
 </div>
 
-<script>
-  function init() {
-    var input = document.getElementById('locationTextField');
-    var autocomplete = new google.maps.places.Autocomplete(input);
-    $('#my-modal').modal('show');
-  }
-
-  google.maps.event.addDomListener(window, 'load', init);
-</script>
 
   <!-- Bootstrap core JavaScript -->
   <script src="startbootstrap-full-width-pics-master/vendor/jquery/jquery.min.js"></script>
@@ -252,9 +254,16 @@
   <!--Firevbase-->
   <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
 
-  <script src="assets/javascript/maplost.js"></script>
+  <!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"></script>
 
+  <!-- project javascript -->
+  <script src="assets/javascript/maplost.js"></script>
   <script src="assets/javascript/login.js"></script>
+  <script src="assets/javascript/auto.js"></script>
+
+  
 
 
 </body>
